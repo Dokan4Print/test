@@ -1,22 +1,51 @@
-<!-- hero-bottle.html -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>زمزمية | سوبر هيرو</title>
-  <link rel="stylesheet" href="css/global.css">
+  <title>زمزمية | Dokan4Print</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/hero.css">
 </head>
 <body>
-  <div class="product-hero">
-    <img src="images/Banar.png" alt="بانر زمزمية">
-  </div>
-  <main class="container">
+
+  <!-- ✅ Header -->
+  <header class="hero-header">
+    <img src="images/Logo.png" alt="Logo" class="logo">
+  </header>
+
+  <!-- ✅ المنتج -->
+  <section class="product-hero">
+    <img src="images/product1.png" alt="زمزمية" class="main-image">
     <h1>زمزمية | سوبر هيرو</h1>
     <p>زمزمية بصوره واسم ابنك</p>
-    <button id="addDesignBtn">أضف تصميم</button>
-    <div id="designSummary"></div>
-    <a href="checkout.html" class="btn">تأكيد الطلب</a>
-  </main>
-  <script src="js/product.js"></script>
+
+    <div class="price-table">
+      <p>السعر حسب الكمية:</p>
+      <ul>
+        <li>1-2: 280ج</li>
+        <li>3-4: 270ج</li>
+        <li>5-12: 260ج</li>
+        <li>13-24: 250ج</li>
+        <li>25-49: 240ج</li>
+        <li>50-99: 230ج</li>
+        <li>100+: 220ج</li>
+      </ul>
+    </div>
+
+    <button onclick="openForm()" class="add-btn">أضف تصميم</button>
+  </section>
+
+  <!-- ✅ التصميمات المختارة -->
+  <section class="design-list-section">
+    <h2>التصميمات المختارة</h2>
+    <div id="designListContainer" class="design-list"></div>
+  </section>
+
+  <!-- ✅ تأكيد الطلب -->
+  <section class="confirm-section">
+    <button onclick="confirmOrder()" class="confirm-btn" id="confirmBtn" disabled>تأكيد الطلب</button>
+  </section>
+
+  <script src="js/hero.js"></script>
 </body>
 </html>
