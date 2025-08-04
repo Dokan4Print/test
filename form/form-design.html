@@ -1,35 +1,57 @@
-<!-- form-design.html -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <title>تفاصيل التصميم</title>
-  <link rel="stylesheet" href="css/form-design.css">
+  <link rel="stylesheet" href="../css/form-design.css">
 </head>
 <body>
-  <main class="container">
-    <h1>تفاصيل التصميم</h1>
-    <form id="customForm">
-      <label>النوع:</label>
-      <input type="radio" name="gender" value="boy"> ولد
-      <input type="radio" name="gender" value="girl"> بنت
 
-      <label>التصميم:</label>
-      <div id="designOptions"></div>
+  <form id="customForm">
 
+    <!-- ✅ اختيار النوع -->
+    <div class="gender-select">
+      <label><input type="radio" name="gender" value="boy"> ولد</label>
+      <label><input type="radio" name="gender" value="girl"> بنت</label>
+    </div>
+
+    <!-- ✅ سلايدر التصميمات -->
+    <div class="design-carousel">
+      <button type="button" id="prevDesign">←</button>
+      <div id="designOptions" class="design-images"></div>
+      <button type="button" id="nextDesign">→</button>
+    </div>
+
+    <!-- ✅ الاسم على التصميم -->
+    <div class="input-group">
       <label>اسم الطفل:</label>
-      <input type="text" name="childName">
+      <input type="text" name="childName" placeholder="مثلاً: محمد">
+    </div>
 
-      <label>صور:</label>
-      <input type="file" id="photo1"><br>
-      <input type="file" id="photo2">
+    <!-- ✅ الاسم على الجهة الأخرى -->
+    <div class="input-group">
+      <label>الاسم الخلفي (اختياري):</label>
+      <input type="text" name="childBackName" placeholder="مثلاً: البطل">
+    </div>
 
+    <!-- ✅ رفع الصور -->
+    <div class="input-group">
+      <label>صور الوجه (حد أقصى 2):</label>
+      <input type="file" id="photoUpload" accept="image/*" multiple>
+      <div class="image-preview" id="imagePreview"></div>
+    </div>
+
+    <!-- ✅ الملاحظات -->
+    <div class="input-group">
       <label>ملاحظات:</label>
-      <textarea id="extraNotes"></textarea>
+      <textarea name="notes" placeholder="مثلاً: خليه أكبر شوية أو خلفية لونها لبني"></textarea>
+    </div>
 
-      <button type="submit">حفظ</button>
-    </form>
-  </main>
-  <script src="js/form-design.js"></script>
+    <!-- ✅ زر الحفظ -->
+    <button type="button" id="saveBtn">💾 حفظ</button>
+
+  </form>
+
+  <script src="../js/form-design.js"></script>
 </body>
 </html>
