@@ -1,64 +1,67 @@
+<!-- ✅ form-design.html (محدث لتصليح المشاكل وتحسين الشكل) -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>زمزمية | Dokan4Print</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/hero.css">
-  <style>
-    /* مؤقتاً بس علشان نشوف التوزيع */
-    iframe {
-      width: 100%;
-      height: 900px;
-      border: 2px solid #ccc;
-      margin-top: 20px;
-    }
-  </style>
+  <title>تفاصيل التصميم</title>
+  <link rel="stylesheet" href="../css/form-design.css">
 </head>
 <body>
-
-  <!-- ✅ Header -->
-  <header class="hero-header">
-    <img src="images/Logo.png" alt="Logo" class="logo">
-  </header>
-
-  <!-- ✅ المنتج -->
-  <section class="product-hero">
-    <img src="images/product1.png" alt="زمزمية" class="main-image">
-    <h1>زمزمية | سوبر هيرو</h1>
-    <p>زمزمية بصوره واسم ابنك</p>
-
-    <div class="price-table">
-      <p>السعر حسب الكمية:</p>
-      <ul>
-        <li>1-2: 280ج</li>
-        <li>3-4: 270ج</li>
-        <li>5-12: 260ج</li>
-        <li>13-24: 250ج</li>
-        <li>25-49: 240ج</li>
-        <li>50-99: 230ج</li>
-        <li>100+: 220ج</li>
-      </ul>
+  <form id="customForm">
+    <!-- ✅ اختيار النوع -->
+    <div class="form-section">
+      <label class="section-label">اختيار النوع:</label>
+      <div class="gender-select">
+        <label><input type="radio" name="gender" value="boy"> ولد</label>
+        <label><input type="radio" name="gender" value="girl"> بنت</label>
+      </div>
+      <small class="note">اختيارك سيعرض تصميمات مناسبة</small>
     </div>
-  </section>
 
-  <!-- ✅ أول جزء من الفورم (اختيار التصميم) -->
-  <section class="form-section">
-    <h2>الخطوة 1: اختار التصميم واملأ التفاصيل</h2>
-    <iframe id="iframeDesign" src="form/form-design.html"></iframe>
-  </section>
+    <!-- ✅ سلايدر التصميمات -->
+    <div class="form-section">
+      <label class="section-label">اختيار التصميم:</label>
+      <div class="design-carousel">
+        <button type="button" id="prevDesign">←</button>
+        <div id="designOptions" class="design-images"></div>
+        <button type="button" id="nextDesign">→</button>
+      </div>
+      <small class="note">اختر تصميم واحد فقط</small>
+    </div>
 
-  <!-- ✅ التصميمات المختارة -->
-  <section class="design-list-section">
-    <h2>التصميمات المختارة</h2>
-    <div id="designListContainer" class="design-list"></div>
-  </section>
+    <!-- ✅ الاسم على التصميم -->
+    <div class="form-section">
+      <label>اسم الطفل:</label>
+      <input type="text" name="childName" placeholder="مثلاً: محمد">
+      <small class="note">اكتب الاسم كما تريد طباعته تمامًا</small>
+    </div>
 
-  <!-- ✅ تأكيد الطلب -->
-  <section class="confirm-section">
-    <button onclick="confirmOrder()" class="confirm-btn" id="confirmBtn" disabled>تأكيد الطلب</button>
-  </section>
+    <!-- ✅ الاسم الخلفي -->
+    <div class="form-section">
+      <label>الاسم الخلفي (اختياري):</label>
+      <input type="text" name="childBackName" placeholder="مثلاً: البطل">
+    </div>
 
-  <script src="js/hero.js"></script>
+    <!-- ✅ الصور -->
+    <div class="form-section">
+      <label>صور الوجه (حد أقصى 2):</label>
+      <input type="file" id="photoUpload" accept="image/*" multiple>
+      <div class="image-preview" id="imagePreview"></div>
+      <small class="note">ارفع صورة واضحة للوجه بخلفية فاتحة</small>
+    </div>
+
+    <!-- ✅ ملاحظات -->
+    <div class="form-section">
+      <label>ملاحظات:</label>
+      <textarea name="notes" placeholder="مثلاً: خليه أكبر شوية أو بخلفية لبني"></textarea>
+    </div>
+
+    <!-- ✅ زر الحفظ -->
+    <div class="form-section">
+      <button type="button" id="saveBtn">💾 حفظ</button>
+    </div>
+  </form>
+
+  <script src="../js/form-design.js"></script>
 </body>
 </html>
