@@ -5,6 +5,15 @@
   <title>زمزمية | Dokan4Print</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/hero.css">
+  <style>
+    /* مؤقتاً بس علشان نشوف التوزيع */
+    iframe {
+      width: 100%;
+      height: 900px;
+      border: 2px solid #ccc;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
 
@@ -31,8 +40,12 @@
         <li>100+: 220ج</li>
       </ul>
     </div>
+  </section>
 
-    <button onclick="openForm()" class="add-btn">أضف تصميم</button>
+  <!-- ✅ أول جزء من الفورم (اختيار التصميم) -->
+  <section class="form-section">
+    <h2>الخطوة 1: اختار التصميم واملأ التفاصيل</h2>
+    <iframe id="iframeDesign" src="form/form-design.html"></iframe>
   </section>
 
   <!-- ✅ التصميمات المختارة -->
