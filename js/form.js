@@ -9,21 +9,23 @@ const saveBtn = document.getElementById('saveBtn');
 
 let selectedDesign = null;
 let uploadedImages = [];
-
-// ✅ تحميل التصميمات
 let designImages = [];
 let currentStartIndex = 0;
 
+// ✅ تحميل التصميمات حسب النوع
+function loadDesigns(gender) {
+  designImages = [];
+  for (let i = 1; i <= 24; i++) {
+    const code = gender === 'boy' ? `H-${i.toString().padStart(2, '0')}` : `S-${i.toString().padStart(2, '0')}`;
+    designImages.push(code);
+  }
+  currentStartIndex = 0;
+  renderDesigns();
+}
+
 genderInputs.forEach(input => {
   input.addEventListener('change', () => {
-    const gender = input.value;
-    designImages = [];
-    for (let i = 1; i <= 24; i++) {
-      const code = gender === 'boy' ? `H-${i.toString().padStart(2, '0')}` : `S-${i.toString().padStart(2, '0')}`;
-      designImages.push(code);
-    }
-    currentStartIndex = 0;
-    renderDesigns();
+    loadDesigns(input.value);
   });
 });
 
@@ -48,19 +50,19 @@ function selectDesign(code, imgEl) {
 
 document.getElementById('prevDesign').onclick = () => {
   if (currentStartIndex > 0) {
-    currentStartIndex -= 1;
+    currentStartIndex--;
     renderDesigns();
   }
 };
 
 document.getElementById('nextDesign').onclick = () => {
   if (currentStartIndex + 4 < designImages.length) {
-    currentStartIndex += 1;
+    currentStartIndex++;
     renderDesigns();
   }
 };
 
-// ✅ رفع الصور
+// ✅ برفيو الصور
 photoUpload.addEventListener('change', () => {
   uploadedImages = [];
   imagePreview.innerHTML = '';
@@ -77,10 +79,11 @@ photoUpload.addEventListener('change', () => {
   });
 });
 
-// ✅ حفظ التصميم
+// ✅ حفظ
 saveBtn.onclick = () => {
-  if (!selectedDesign || !childNameInput.value) {
-    alert("برجاء اختيار التصميم وكتابة اسم الطفل");
+  const gender = [...genderInputs].find(r => r.checked)?.value;
+  if (!gender || !selectedDesign || !childNameInput.value.trim()) {
+    alert("برجاء اختيار النوع والتصميم وكتابة اسم الطفل");
     return;
   }
 
@@ -89,6 +92,7 @@ saveBtn.onclick = () => {
 
   const item = {
     id: newId,
+    gender,
     designCode: selectedDesign,
     designImage: `../images/${selectedDesign}.png`,
     childName: childNameInput.value,
@@ -100,15 +104,14 @@ saveBtn.onclick = () => {
   list.push(item);
   localStorage.setItem("designList", JSON.stringify(list));
 
-  // تصفير الحقول
   selectedDesign = null;
   uploadedImages = [];
-  document.querySelectorAll('.design-images img').forEach(img => img.classList.remove('selected'));
   childNameInput.value = "";
   childBackNameInput.value = "";
   notesInput.value = "";
   imagePreview.innerHTML = "";
   photoUpload.value = "";
+  document.querySelectorAll('.design-images img').forEach(img => img.classList.remove('selected'));
 
-  alert("تم حفظ التصميم، يمكنك إضافة تصميم جديد.");
+  alert("تم حفظ التصميم بنجاح، يمكنك إضافة تصميم جديد.");
 };
