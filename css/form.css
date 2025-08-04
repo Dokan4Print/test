@@ -1,1 +1,90 @@
-/* Final CSS content for form-design.css */
+body {
+  font-family: 'Cairo', sans-serif;
+  background: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #0001;
+}
+
+.gender-select {
+  margin-bottom: 20px;
+}
+
+.gender-select label {
+  margin: 0 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.design-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.design-images {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  max-width: 300px;
+}
+
+.design-images img {
+  height: 100px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.design-images img.selected {
+  border-color: crimson;
+  transform: scale(1.1);
+}
+
+.input-group {
+  margin: 15px 0;
+  text-align: right;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
+.image-preview {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.image-preview img {
+  height: 60px;
+  border-radius: 6px;
+}
+
+button {
+  padding: 10px 25px;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+}
